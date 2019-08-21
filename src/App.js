@@ -22,8 +22,8 @@ function App() {
 
         <p>
           <NavBar/>
+          <Categories/>
         </p>
-         <Categories/>
 
          </Router>
        </header>

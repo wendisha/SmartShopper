@@ -1,95 +1,56 @@
-import React from 'react'
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import React from 'react';
+import './style.css';
 
 
-export default class Example extends React.Component {
-  constructor(props) {
-    super(props);
+class Dropdown extends React.Component {
+constructor(){
+ super();
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      dropdownOpen: false
-    };
+ this.state = {
+       displayMenu: false,
+     };
+
+  this.showDropdownMenu = this.showDropdownMenu.bind(this);
+  this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
+
+};
+
+showDropdownMenu(event) {
+    event.preventDefault();
+    this.setState({ displayMenu: true }, () => {
+    document.addEventListener('click', this.hideDropdownMenu);
+    });
   }
 
-  toggle() {
-    this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
-    }));
+  hideDropdownMenu() {
+    this.setState({ displayMenu: false }, () => {
+      document.removeEventListener('click', this.hideDropdownMenu);
+    });
+
   }
 
   render() {
     return (
-      <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle caret>
-          Dropdown
-        </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem header>Header</DropdownItem>
-          <DropdownItem>Some Action</DropdownItem>
-          <DropdownItem disabled>Action (disabled)</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem>Foo Action</DropdownItem>
-          <DropdownItem>Bar Action</DropdownItem>
-          <DropdownItem>Quo Action</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
+        <div  className="dropdown" style = {{background:"red",width:"200px"}} >
+         <div className="button" onClick={this.showDropdownMenu}> Categories </div>
+
+          { this.state.displayMenu ? (
+          <ul>
+         <li><a>Applicances</a></li>
+         <li><a>Computer</a></li>
+         <li><a>Electronics</a></li>
+         <li><a>Mobile</a></li>
+          </ul>
+        ):
+        (
+          null
+        )
+        }
+
+       </div>
+
     );
   }
 }
 
-Dropdown.propTypes = {
-  disabled: PropTypes.bool,
-  direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),
-  group: PropTypes.bool,
-  isOpen: PropTypes.bool,
-  // For Dropdown usage inside a Nav
-  nav: PropTypes.bool,
-  active: PropTypes.bool,
-  // For Dropdown usage inside a Navbar (disables popper)
-  inNavbar: PropTypes.bool,
-  tag: PropTypes.string, // default: 'div' unless nav=true, then 'li'
-  toggle: PropTypes.func,
-  setActiveFromChild: PropTypes.bool
-};
-
-DropdownToggle.propTypes = {
-  caret: PropTypes.bool,
-  color: PropTypes.string,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  'data-toggle': PropTypes.string,
-  'aria-haspopup': PropTypes.bool,
-  // For DropdownToggle usage inside a Nav
-  nav: PropTypes.bool,
-  // Defaults to Button component
-  tag: PropTypes.any
-};
-
-DropdownMenu.propTypes = {
-  tag: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  right: PropTypes.bool,
-  flip: PropTypes.bool, // default: true,
-  className: PropTypes.string,
-  cssModule: PropTypes.object,
-  // Custom modifiers that are passed to DropdownMenu.js, see https://popper.js.org/popper-documentation.html#modifiers
-  modifiers: PropTypes.object,
-  persist: PropTypes.bool, // presist the popper, even when closed. See #779 for reasoning
-  // passed to popper, see https://popper.js.org/popper-documentation.html#Popper.Defaults.positionFixed
-  positionFixed: PropTypes.bool
-};
-
-DropdownItem.propTypes = {
-  children: PropTypes.node,
-  active: PropTypes.bool,
-  disabled: PropTypes.bool,
-  divider: PropTypes.bool,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  header: PropTypes.bool,
-  onClick: PropTypes.func,
-  className: PropTypes.string,
-  cssModule: PropTypes.object,
-  toggle: PropTypes.bool // default: true
-};
+export default Dropdown;
