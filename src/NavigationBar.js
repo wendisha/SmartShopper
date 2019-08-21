@@ -2,6 +2,11 @@ import React from 'react'
 import About from './About.js'
 import TopSearches from './TopSearches'
 import { NavLink } from 'react-router-dom';
+import Dropdown from './Dropdown'
+
+
+import { Navbar } from 'react-bootstrap';
+// import {  Navbar } from 'reactstrap';
 
 const link = {
   width: '100px',
@@ -9,13 +14,14 @@ const link = {
   margin: '0 6px 6px',
   background: 'red',
   textDecoration: 'none',
-  color: 'white',
+  color: 'black',
 }
 
 
-const NavBar = () => {
+const NavigationBar = () => {
   return (
     <div>
+      <Navbar bg="dark" expand="lg" variant="dark">
     <NavLink
    to="/About"
    /* set exact so it knows to only set activeStyle when route is deeply equal to link */
@@ -38,9 +44,14 @@ activeStyle={{
   background: 'orange'
 }}
 >Top Searches</NavLink>
-    </div>
+  <Dropdown/>
+  </Navbar>
+
+</div>
+
   );
 };
 
 
-export default NavBar;
+
+export default NavigationBar;

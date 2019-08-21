@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Button, ButtonGroup } from 'reactstrap';
 class SearchContainer extends React.Component {
   // state = {
   //   value: '',
@@ -15,9 +15,9 @@ class SearchContainer extends React.Component {
     return (
       <form>
         <div>
+          <Button color="primary" size="sm">Search</Button>{' '}
            <label>
-              Search Item
-
+                <input id="searchterm" name="searchterm" type="text" placeholder="Search Item"/>
               </label>
           </div>
          </form>

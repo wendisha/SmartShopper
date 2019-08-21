@@ -4,11 +4,12 @@ import {
   Route
 } from 'react-router-dom';
 
-import NavBar from './NavBar'
+import NavigationBar from './NavigationBar'
 import About from './About'
 import TopSearches from './TopSearches'
 import Categories from './Categories'
 import Dropdown from './Dropdown';
+import SearchContainer from './Containers/SearchContainer'
 
 
 
@@ -17,12 +18,13 @@ function App() {
     <div className="App">
        <header className="App-header">
         <Router>
+         <NavigationBar/>
         <Dropdown/>
         <Route exact path="/About" component={About} />
 
         <p>
-          <NavBar/>
-          <Categories/>
+          <SearchContainer/>
+    
         </p>
 
          </Router>
