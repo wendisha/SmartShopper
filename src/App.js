@@ -20,14 +20,10 @@ function App() {
     <div className="App">
        <header className="App-header">
         <Router>
-
          <PracticeBar/>
         <Route exact path="/About" component={About} />
-
-        <p>
-        <DropDown/>  <center> <SearchContainer/> </center>
-
-        </p>
+          <DropDown/>
+          <center> <SearchContainer/> </center>
 
          </Router>
        </header>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, ButtonGroup } from 'reactstrap';
+import { Button} from 'reactstrap';
 const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 const BASE_URL = "https://price-api.datayuge.com/api/v1/compare/search?" + `api_key=${priceYugeAPI_KEY}&product=`;
 
@@ -21,7 +21,8 @@ class SearchContainer extends React.Component {
 
   fetch(BASE_URL.concat(this.state.searchTerm))
     .then(response => response.json())
-    .then(response => this.setState({ items: response.results}));
+      // console.log(response.json())
+    .then(json => this.setState({ items: json.data}));
   };
 
 
@@ -36,5 +37,6 @@ class SearchContainer extends React.Component {
     );
   }
 }
+
 
 export default SearchContainer;

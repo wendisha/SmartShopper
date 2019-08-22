@@ -1,12 +1,11 @@
 import React from 'react'
 import {
   Nav,
-  Navbar,
   NavbarBrand,
   NavLink
 } from 'reactstrap';
 import { Link } from 'react-router-dom'
-
+import Navbar from 'react-bootstrap/Navbar'
 // const link = {
 //   textDecoration: 'underline'
 // }
