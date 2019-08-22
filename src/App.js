@@ -8,7 +8,9 @@ import NavigationBar from './NavigationBar'
 import About from './About'
 import TopSearches from './TopSearches'
 import Categories from './Categories'
-import Dropdown from './Dropdown';
+import PracticeBar from './PracticeBar'
+import DropDown from './DropDown'
+
 import SearchContainer from './Containers/SearchContainer'
 
 
@@ -18,13 +20,13 @@ function App() {
     <div className="App">
        <header className="App-header">
         <Router>
-         <NavigationBar/>
-        <Dropdown/>
+
+         <PracticeBar/>
         <Route exact path="/About" component={About} />
 
         <p>
-          <SearchContainer/>
-    
+        <DropDown/>  <center> <SearchContainer/> </center>
+
         </p>
 
          </Router>

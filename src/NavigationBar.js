@@ -2,35 +2,45 @@ import React from 'react'
 import About from './About.js'
 import TopSearches from './TopSearches'
 import { NavLink } from 'react-router-dom';
-import Dropdown from './Dropdown'
+import DropDown from './DropDown'
+// import {
+//   Collapse,
+//   NavbarToggler,
+//   NavbarBrand,
+//   Nav,
+//   NavItem,
+//   NavLink,
+//   UncontrolledDropdown,
+//   DropdownToggle,
+//   DropdownMenu,
+//   DropdownItem } from 'reactstrap';
 
 
-import { Navbar } from 'react-bootstrap';
-// import {  Navbar } from 'reactstrap';
+// import { Navbar } from 'react-bootstrap';
+import {  Navbar } from 'reactstrap';
 
 const link = {
   width: '100px',
   padding: '12px',
   margin: '0 6px 6px',
-  background: 'red',
+  background: 'white',
   textDecoration: 'none',
   color: 'black',
 }
 
 
+
+
 const NavigationBar = () => {
   return (
     <div>
-      <Navbar bg="dark" expand="lg" variant="dark">
+      <Navbar bg="dark" size="mediun" variant="dark">
     <NavLink
    to="/About"
-   /* set exact so it knows to only set activeStyle when route is deeply equal to link */
    exact
-   /* add styling to Navlink */
    style={link}
-   /* add prop for activeStyle */
    activeStyle={{
-     background: 'red'
+     background: 'white'
    }}
  >About</NavLink>
  <NavLink
@@ -41,16 +51,18 @@ exact
 style={link}
 /* add prop for activeStyle */
 activeStyle={{
-  background: 'orange'
+  background: 'white'
 }}
 >Top Searches</NavLink>
-  <Dropdown/>
+  // <DropDown/>
   </Navbar>
 
 </div>
 
   );
 };
+
+
 
 
 

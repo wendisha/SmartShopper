@@ -1,51 +1,40 @@
 import React from 'react';
-import './style.css';
+// import './style.css';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, } from 'reactstrap'
+import { Link } from 'react-router-dom';
 
 
-class Dropdown extends React.Component {
-constructor(){
- super();
 
- this.state = {
-       displayMenu: false,
+class DropDown extends React.Component {
+  constructor(props) {
+     super(props);
+
+     this.toggle = this.toggle.bind(this);
+     this.state = {
+       dropdownOpen: false
      };
+   }
 
-  this.showDropdownMenu = this.showDropdownMenu.bind(this);
-  this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
-
-};
-
-showDropdownMenu(event) {
-    event.preventDefault();
-    this.setState({ displayMenu: true }, () => {
-    document.addEventListener('click', this.hideDropdownMenu);
-    });
-  }
-
-  hideDropdownMenu() {
-    this.setState({ displayMenu: false }, () => {
-      document.removeEventListener('click', this.hideDropdownMenu);
-    });
-
-  }
-
+   toggle() {
+     this.setState(prevState => ({
+       dropdownOpen: !prevState.dropdownOpen
+     }));
+   }
   render() {
     return (
-        <div  className="dropdown" style = {{background:"red",width:"200px"}} >
-         <div className="button" onClick={this.showDropdownMenu}> All Categories </div>
+       <div>
+    <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+  <DropdownToggle caret>
+    All Categories
+  </DropdownToggle >
+  <DropdownMenu>
+    <DropdownItem tag={Link} to="/appliances">Appliances</DropdownItem>
+    <DropdownItem tag={Link} to="/computer">Computer</DropdownItem>
+    <DropdownItem tag={Link} to="/electronics">Electronics</DropdownItem>
+    <DropdownItem tag={Link} to="/mobile">Mobile</DropdownItem>
 
-          { this.state.displayMenu ? (
-          <ul>
-         <li><a href="/appliances">Applicances</a></li>
-         <li><a href="/computers">Computer</a></li>
-         <li><a>Electronics</a></li>
-         <li><a>Mobile</a></li>
-          </ul>
-        ):
-        (
-          null
-        )
-        }
+  </DropdownMenu>
+</Dropdown>
 
        </div>
 
@@ -53,4 +42,6 @@ showDropdownMenu(event) {
   }
 }
 
-export default Dropdown;
+
+
+export default DropDown;
