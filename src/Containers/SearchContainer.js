@@ -7,10 +7,10 @@ class SearchContainer extends React.Component {
   state = {
     searchTerm: '',
     items: []
-  }
+  };
 
 
-    handleChange = event => {
+    handleSearchInputChange = event => {
     this.setState({
       searchTerm: event.target.value,
     });
@@ -22,7 +22,7 @@ class SearchContainer extends React.Component {
   fetch(BASE_URL.concat(this.state.searchTerm))
     .then(response => response.json())
       // console.log(response.json())
-    .then(json => this.setState({ items: json.data}));
+    .then(jsonResp => console.log(jsonResp.data))
   };
 
 
@@ -30,8 +30,8 @@ class SearchContainer extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-            <input id="searchterm" name="searchterm" type="text" placeholder="Search Item"/>
-                  <Button type="submit" color="primary" size="sm">Search</Button>{' '}
+            <input id="searchterm" name="searchterm" type="text" placeholder="Search Item"  onChange={this.handleSearchInputChange}/>
+                  <Button type="submit" color="primary" size="sm">Search</Button>
          </form>
         </div>
     );
