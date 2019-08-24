@@ -7,4 +7,6 @@ import React from 'react'
 
 
 
-export default ItemContainer
+
+
+export default ItemFront
