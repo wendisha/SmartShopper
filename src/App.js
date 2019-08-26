@@ -10,6 +10,7 @@ import TopSearches from './TopSearches'
 import Categories from './Categories'
 import PracticeBar from './PracticeBar'
 import DropDown from './DropDown'
+import MenuBar from './Menubar'
 
 import SearchContainer from './Containers/SearchContainer'
 
@@ -24,7 +25,6 @@ function App() {
         <Route exact path="/About" component={About} />
           <DropDown/>
           <center> <SearchContainer/> </center>
-
          </Router>
        </header>
     </div>
