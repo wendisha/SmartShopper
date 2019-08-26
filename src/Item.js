@@ -2,18 +2,10 @@ import React from 'react'
 import ComponentSlider from "@kapost/react-component-slider";
 import './newstyle.css'
 
+const renderLeftArrow = () => <i className="fa fa-caret-left" />;
 const renderRightArrow = () => <i className="fa fa-caret-right" />;
 
-const renderLeftArrow = () => {
-  if (this.state.marginLeft !== 0) {
-    return (
-      <button className="caret caret-left" onClick={this.handleLeftClicked}>
-        {this.props.renderLeftArrow()}
-      </button>
-    );
-  }
-  return null;
- }
+
 
 const styles = {
   fontFamily: "sans-serif",
