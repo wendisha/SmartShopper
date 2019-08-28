@@ -1,9 +1,7 @@
 import React from 'react'
-import ComponentSlider from "@kapost/react-component-slider";
+import { Link } from "react-router-dom";
 import './newstyle.css'
-
-const renderLeftArrow = () => <i className="fa fa-caret-left" />;
-const renderRightArrow = () => <i className="fa fa-caret-right" />;
+import Arrow from './Arrow'
 
 
 
@@ -23,12 +21,13 @@ const ItemDetail = ({
 
   return (
     <div className="menu-bar">
-      <ComponentSlider
-          renderLeftArrow={renderLeftArrow}
-          renderRightArrow={renderRightArrow}
-        >
-      <div className="menu-item" style={styles}> {product_title} </div>
-        </ComponentSlider>
+      <div className="arrow-prev">
+        </div>
+      <div className="menu-item" style={styles}>
+       {Arrow}
+      <Link to={`${product_title}`} activeClassName="active">{product_title}</Link>
+        </div>
+
     </div>
   );
 }

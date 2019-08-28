@@ -11,9 +11,14 @@ import Categories from './Categories'
 import PracticeBar from './PracticeBar'
 import DropDown from './DropDown'
 import MenuBar from './Menubar'
+import ItemFrontCard from './ItemFrontCard'
+import FlipCard from './FlipCard';
+import SlowerExample from './SlowerExample'
+
+
+
 
 import SearchContainer from './Containers/SearchContainer'
-
 
 
 function App() {
@@ -22,7 +27,7 @@ function App() {
        <header className="App-header">
         <Router>
          <PracticeBar/>
-        <Route exact path="/About" component={About} />
+        <Route exact path="/About" component={FlipCard} />
           <DropDown/>
           <center> <SearchContainer/> </center>
          </Router>
