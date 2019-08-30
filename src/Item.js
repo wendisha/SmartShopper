@@ -1,8 +1,15 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import './newstyle.css'
-import Arrow from './Arrow'
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import About from './About'
+import ItemFrontCard from './ItemFrontCard'
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import ProductDetail from './ProductDetail'
 
+
+
+import './newstyle.css'
 
 
 const styles = {
@@ -10,6 +17,8 @@ const styles = {
   textAlign: "center",
   paddingTop: "50px"
 };
+
+
 
 const ItemDetail = ({
   product_id,
@@ -20,19 +29,20 @@ const ItemDetail = ({
 }) => {
 
   return (
+        <Router>
     <div className="menu-bar">
-      <div className="arrow-prev">
-        </div>
       <div className="menu-item" style={styles}>
-       {Arrow}
-      <Link to={`${product_title}`} activeClassName="active">{product_title}</Link>
+  <Link to={`/${product_id}`} activeClassName="active">{product_title}</Link>
         </div>
-
+            <Route exact path={`/${product_id}`} component={ProductDetail} />
     </div>
+      </Router>
   );
 }
+//
 
-const Item = ({ items }) => <div className="menu-list">{items.map(ItemDetail)}</div>;
+  const Item = ({ items }) =>  <div className="menu-list">{items.map(ItemDetail)}</div>;
+
 
 
 

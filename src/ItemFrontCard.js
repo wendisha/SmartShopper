@@ -1,12 +1,14 @@
 import React from 'react'
+import Item from './Item'
 
 
 
-export default class ItemFrontCard extends React.Component {
-
+class ItemFrontCard extends React.Component {
   render() {
     return (
-          'front'
+        'Hello'
     );
   }
 }
+
+export default ItemFrontCard

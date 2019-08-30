@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Flippy, { FrontSide, BackSide } from '././lib';
+import './App.css'
+
 import Rick from './rick.png';
-import './App.css';
+
 
 const FlippyStyle = {
   width: '200px',

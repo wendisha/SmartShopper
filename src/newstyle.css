@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 .component-slider .slider-content {
-  display: inline;
+  display: inline-block;
   transition: margin-left 0.15s ease-in;
 }
 .component-slider .caret {
@@ -32,15 +32,13 @@
 .component-slider .caret-left {
   left: 0;
 }
-
-/*custom styles*/
-.menu-bar {
+.item-card {
   border: 1px solid gray;
-  width: 200%;
+  width: 100%;
 }
 
 .menu-item {
-  width: 200px;
+  width: 100px;
   display: inline-block;
   padding: 15px 10px;
   cursor: pointer;

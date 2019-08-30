@@ -10,12 +10,12 @@ import TopSearches from './TopSearches'
 import Categories from './Categories'
 import PracticeBar from './PracticeBar'
 import DropDown from './DropDown'
-import MenuBar from './Menubar'
-import ItemFrontCard from './ItemFrontCard'
+import Gallery from './Gallery'
+
+import Contact from './Contact'
+
+
 import FlipCard from './FlipCard';
-import SlowerExample from './SlowerExample'
-
-
 
 
 import SearchContainer from './Containers/SearchContainer'
@@ -27,7 +27,8 @@ function App() {
        <header className="App-header">
         <Router>
          <PracticeBar/>
-        <Route exact path="/About" component={FlipCard} />
+        <Route exact path="/About" component={About} />
+        <Route exact path="/Contact" component={Gallery} />
           <DropDown/>
           <center> <SearchContainer/> </center>
          </Router>

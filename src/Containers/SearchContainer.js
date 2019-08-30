@@ -43,7 +43,7 @@ class SearchContainer extends React.Component {
                   <Button type="submit" color="primary" size="sm">Search</Button>
          </form>
             <Item items={this.state.items} />
-              
+
         </div>
     );
   }
