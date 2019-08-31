@@ -1,5 +1,6 @@
 import React from 'react'
 import Item from './Item'
+
 import { Button} from 'reactstrap';
 const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 
@@ -7,11 +8,18 @@ const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 
 
 
-export default class ProductDetail extends React.Component {
+class ProductDetail extends React.Component {
+  constructor(props) {
+     super(props);
+ }
 
  render() {
-   return (
-           'Hello'
-   )
- }
+        return(
+            <div>
+                <Item />
+            </div>
+        )
+    }
 }
+
+export default ProductDetail

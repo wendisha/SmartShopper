@@ -1,14 +1,10 @@
 import React from 'react'
+
 import { Link } from "react-router-dom";
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
 import About from './About'
 import ItemFrontCard from './ItemFrontCard'
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import ProductDetail from './ProductDetail'
-
-
-
 import './newstyle.css'
 
 
@@ -18,14 +14,13 @@ const styles = {
   paddingTop: "50px"
 };
 
-
-
+//
 const ItemDetail = ({
-  product_id,
-  product_title,
-  product_link,
-  product_image,
-  product_lowest_price
+  product_id: product_id,
+  product_title: product_title,
+  product_link: product_link,
+  product_image: product_image,
+  product_lowest_price: product_lowest_price
 }) => {
 
   return (
@@ -39,19 +34,32 @@ const ItemDetail = ({
       </Router>
   );
 }
+// // //
+// const Item = ({ items }) =>  <div className="menu-list">{items.map(ItemDetail)} </div>;
+
+ const Item = ({ items }) =>  {
+    return (
+   <div className="menu-item">
+     {items.map(function(item) {
+         return (
+         <h4 key={item.product_id} product_title={item.product_title}> </h4>
+       )
+     })}
+   </div>
+  )
+ }
+
+// function Item({items}) {
+//     const itemcomponents = items.map(item => <h3 key={item.product_id} product_title={item.product_title}/>)
 //
+//     return (
+//         <div>
+//             {product_title}
+//         </div>
+//     )
+// }
 
-  const Item = ({ items }) =>  <div className="menu-list">{items.map(ItemDetail)}</div>;
 
 
-
-
-Item.defaultProps = {
-  product_id:'ZToxMjIyNA',
-  product_title:'Apple iPhone 6 32GB',
-  produut_link: 'https://price-api.datayuge.com/api/v1/compare/detail?id=ZToxMjIyNA',
-  product_image: 'http://images-api.datayuge.in/image/MTIyMjQtMjYtMQ.jpg',
-  product_lowest_price: '26490'
-}
 
 export default Item
