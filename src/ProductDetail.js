@@ -9,14 +9,14 @@ const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 
 
 class ProductDetail extends React.Component {
-  constructor(props) {
-     super(props);
- }
+
+
+
 
  render() {
         return(
             <div>
-                <Item />
+             {this.props.product_id}
             </div>
         )
     }

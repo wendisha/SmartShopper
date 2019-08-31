@@ -16,11 +16,11 @@ const styles = {
 
 //
 const ItemDetail = ({
-  product_id: product_id,
-  product_title: product_title,
-  product_link: product_link,
-  product_image: product_image,
-  product_lowest_price: product_lowest_price
+  product_id,
+  product_title,
+  product_link,
+  product_image,
+  product_lowest_price
 }) => {
 
   return (
@@ -29,25 +29,25 @@ const ItemDetail = ({
       <div className="menu-item" style={styles}>
   <Link to={`/${product_id}`} activeClassName="active">{product_title}</Link>
         </div>
-            <Route exact path={`/${product_id}`} component={ProductDetail} />
+            <Route exact path={`/${product_id}`} render={()=><ProductDetail product_id={product_id}/>}/>
     </div>
       </Router>
   );
 }
 // // //
-// const Item = ({ items }) =>  <div className="menu-list">{items.map(ItemDetail)} </div>;
+const Item = ({ items }) =>  <div className="menu-list">{items.map(ItemDetail)} </div>;
 
- const Item = ({ items }) =>  {
-    return (
-   <div className="menu-item">
-     {items.map(function(item) {
-         return (
-         <h4 key={item.product_id} product_title={item.product_title}> </h4>
-       )
-     })}
-   </div>
-  )
- }
+ // const Item = ({ items }) =>  {
+ //    return (
+ //   <div className="menu-item">
+ //     {items.map(function(item) {
+ //         return (
+ //         <h4 key={item.product_id} product_title={item.product_title}> </h4>
+ //       )
+ //     })}
+ //   </div>
+ //  )
+ // }
 
 // function Item({items}) {
 //     const itemcomponents = items.map(item => <h3 key={item.product_id} product_title={item.product_title}/>)
