@@ -29,7 +29,7 @@ const ItemDetail = ({
       <div className="menu-item" style={styles}>
   <Link to={`/${product_id}`} activeClassName="active">{product_title}</Link>
         </div>
-            <Route exact path={`/${product_id}`} render={()=><ProductDetail product_id={product_id}/>}/>
+            <Route exact path={`/${product_id}`} render={()=><ProductDetail key={product_id}/>}/>
     </div>
       </Router>
   );

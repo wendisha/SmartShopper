@@ -1,7 +1,6 @@
 import React from 'react'
-import Item from './Item'
-
 import { Button} from 'reactstrap';
+
 const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 
 // const BASE_URL = 'https://price-api.datayuge.com/api/v1/compare/detail?' + `api_key=${priceYugeAPI_KEY}&id=${this.props.product_id}`;
@@ -10,13 +9,22 @@ const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 
 class ProductDetail extends React.Component {
 
+  handleClick= event =>{
+    event.preventDefault();
+
+  fetch('https://price-api.datayuge.com/api/v1/compare/detail?' `api_key=${priceYugeAPI_KEY}&id=${this.props.product_id}`)
+    .then(response => response.json())
+      // console.log(response.json())
+    .then(jsonResp => console.log(jsonResp));
+  };
+
 
 
 
  render() {
         return(
             <div>
-             {this.props.product_id}
+                <Button type="submit" color="secondary" size="sm">Product Detail</Button>
             </div>
         )
     }
