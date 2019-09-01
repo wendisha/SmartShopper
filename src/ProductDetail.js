@@ -9,13 +9,13 @@ const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 
 class ProductDetail extends React.Component {
 
-  handleClick= event =>{
+  handleClick = event =>{
     event.preventDefault();
 
-  fetch('https://price-api.datayuge.com/api/v1/compare/detail?' `api_key=${priceYugeAPI_KEY}&id=${this.props.product_id}`)
+  fetch('https://price-api.datayuge.com/api/v1/compare/detail?'+ `api_key=${priceYugeAPI_KEY}&id=${this.props.product_id}`)
     .then(response => response.json())
       // console.log(response.json())
-    .then(jsonResp => console.log(jsonResp));
+    .then(jsonResp => console.log(jsonResp.data.available_colors.toString()));
   };
 
 
@@ -24,7 +24,7 @@ class ProductDetail extends React.Component {
  render() {
         return(
             <div>
-                <Button type="submit" color="secondary" size="sm">Product Detail</Button>
+                <Button onClick={this.handleClick} type="submit" color="secondary" size="sm">Product Detail</Button>
             </div>
         )
     }
