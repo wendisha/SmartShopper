@@ -27,7 +27,8 @@ const ItemDetail = ({
         <Router>
     <div className="menu-bar">
       <div className="menu-item" style={styles}>
-  <Link to={`/${product_id}`} activeClassName="active">{product_title}</Link>
+  <Link to={`/${product_id}`} activeClassName="active">{product_title} </Link>
+   <img src={product_image} />
         </div>
             <Route exact path={`/${product_id}`} render={()=><ProductDetail product_id={product_id}/>}/>
     </div>
