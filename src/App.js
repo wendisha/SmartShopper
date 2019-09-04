@@ -19,6 +19,7 @@ import FlipCard from './FlipCard';
 import SlideShow from './SlideShow'
 
 
+
 import SearchContainer from './Containers/SearchContainer'
 
 
@@ -31,7 +32,7 @@ function App() {
         <Route exact path="/About" component={About} />
         <Route exact path="/Contact" component={Contact} />
           <DropDown/>
-          <center> <SearchContainer/> </center>
+        <SearchContainer/> 
           <SlideShow/>
          </Router>
        </header>

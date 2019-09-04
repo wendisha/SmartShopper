@@ -3,6 +3,10 @@ import About from './About.js'
 import TopSearches from './TopSearches'
 import { NavLink } from 'react-router-dom';
 import DropDown from './DropDown'
+import logo from './assets/logo.png'
+import './App.css'
+import SearchContainer from './Containers/SearchContainer'
+
 // import {
 //   Collapse,
 //   NavbarToggler,
@@ -29,12 +33,10 @@ const link = {
 }
 
 
-
-
 const NavigationBar = () => {
   return (
     <div>
-      <Navbar bg="dark" size="mediun" variant="dark">
+      <Navbar bg="dark" size="medium" variant="dark">
     <NavLink
    to="/About"
    exact
@@ -55,6 +57,7 @@ activeStyle={{
 }}
 >Top Searches</NavLink>
   // <DropDown/>
+   <SearchContainer/>
   </Navbar>
 
 </div>

@@ -1,54 +1,58 @@
-import React from 'react'
-import { Fade } from 'react-slideshow-image';
+import React from 'react';
+import { Slide } from 'react-slideshow-image';
 import './SlideShow.css'
+import Image1 from './assets/6s_pure_gold.jpg';
+import Image2 from './assets/grey_1.jpg'
+import Image3 from './assets/image3.webp'
+import Image4 from './assets/image4.jpg'
 
 
-const fadeImages = [
-  'assets/6s_pure_gold.jpg',
-  'images/grey_1.jpg',
-  'images/grey_2.ppg'
-];
 
 
-const fadeProperties = {
+const slideImages = [
+  Image1,
+  Image2,
+  Image3,
+  Image4
+]
+
+
+const properties = {
   duration: 5000,
   transitionDuration: 500,
-  infinite: false,
+  infinite: true,
   indicators: true,
+  arrows: true,
   autoplay: true,
   onChange: (oldIndex, newIndex) => {
-    console.log(`fade transition from ${oldIndex} to ${newIndex}`);
+    console.log(`slide transition from ${oldIndex} to ${newIndex}`);
   }
 }
-
 const SlideShow = () => {
-  return (
-    <div className="slide-container">
-      <Fade {...fadeProperties}>
-        <div className="each-fade">
-          <div className="image-container">
-            <img src={fadeImages[0]} />
+    return (
+      <div className="slide-container">
+        <Slide {...properties}>
+          <div className="each-slide">
+            <div style={{'backgroundImage': `url(${slideImages[0]})`}}>
+            </div>
           </div>
-          <h2>First Slide</h2>
-        </div>
-        <div className="each-fade">
-          <div className="image-container">
-            <img src={fadeImages[1]} />
+          <div className="each-slide">
+            <div style={{'backgroundImage': `url(${slideImages[1]})`}}>
+              <span>Slide 2</span>
+            </div>
           </div>
-          <h2>Second Slide</h2>
-        </div>
-        <div className="each-fade">
-          <div className="image-container">
-            <img src={fadeImages[2]} />
+          <div className="each-slide">
+            <div style={{'backgroundImage': `url(${slideImages[2]})`}}>
+              <span>Slide 3</span>
+            </div>
           </div>
-          <h2>Third Slide</h2>
-        </div>
-      </Fade>
-    </div>
-  )
+          <div className="each-slide">
+            <div style={{'backgroundImage': `url(${slideImages[3]})`}}>
+              <span>Slide 3</span>
+            </div>
+          </div>
+        </Slide>
+      </div>
+    )
 }
-
-
-
-
 export default SlideShow
