@@ -15,8 +15,8 @@ import Gallery from './Gallery'
 import Contact from './Contact'
 
 
-import FlipCard from './FlipCard';
-import MultiCarousel from './MultiCarousel'
+import CardComponent from './CardComponent'
+
 
 
 
@@ -30,7 +30,7 @@ function App() {
        <header className="App-header">
         <Router>
          <PracticeBar/>
-        <Route exact path="/About" component={FlipCard} />
+        <Route exact path="/About" component={CardComponent} />
         <Route exact path="/Contact" component={Contact} />
           <DropDown/>
         <SearchContainer/>

@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import Flippy, { FrontSide, BackSide } from '././lib';
 import './App.css'
 
+import Rick from './rick.png';
 import Amazon from './assets/amazon.jpg';
-import Ebay from './assets/ebay_store.png'
-import Flipkart from './assets/flipkart_store.png'
-import Infibeam from './assets/infibeam.jpg'
-import ShopeClues from './assets/Shopclues.png'
-import TataCliq from './assets/TataCliq.jpg'
-import Rick from './rick.png'
+
 
 
 const FlippyStyle = {
@@ -22,11 +18,11 @@ const FlippyStyle = {
 }
 
 
-const DefaultCardContents = ({ children }) => (
+const AmazonCardContents = ({ children }) => (
   <React.Fragment>
     <FrontSide
       style={{
-        backgroundColor:'white',
+        backgroundColor: 'white',
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column'
@@ -70,43 +66,7 @@ const DefaultCardContents = ({ children }) => (
     </BackSide>
   </React.Fragment>);
 
-const FlippyOnHover = ({ flipDirection = 'vertical' }) => (
-  <Flippy
-    flipOnHover={true}
-    flipDirection={flipDirection}
-    style={FlippyStyle}
-  >
-    <DefaultCardContents>
-    I flip {flipDirection}ly on hover
-    </DefaultCardContents>
-  </Flippy>
-);
-
-const FlippyOnClick = ({ flipDirection = 'vertical' }) => (
-  <Flippy
-    flipOnClick={true}
-    flipDirection={flipDirection}
-    style={FlippyStyle}
-  >
-    <DefaultCardContents>
-      I flip {flipDirection}ly on click
-    </DefaultCardContents>
-  </Flippy>
-);
-
-const ControlledFlippy = ({ isFlipped })  => (
-  <Flippy
-    flipDirection="vertical"
-    isFlipped={isFlipped}
-    style={FlippyStyle}
-  >
-    <DefaultCardContents>
-      I flip vertically for every 3sec. I am controlling by a upper scope.
-    </DefaultCardContents>
-  </Flippy>
-);
-
-class FlipCard extends Component {
+class AmazonCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -126,36 +86,18 @@ class FlipCard extends Component {
         <div style={{ display: 'flex', flex: '1 0 200px', justifyContent: 'space-around', 'flex-wrap': 'wrap' }}>
             <Flippy
               ref={(r) => this.flippyHorizontal = r}
-              flipOnClick={false}
+              flipOnClick={true}
               style={FlippyStyle}
             >
-            <DefaultCardContents>
+            <AmazonCardContents>
               I flip horizontally with an event<br />
               <button type="button" onClick={() => this.flippyHorizontal.toggle()}>Toggle Me!</button>
-            </DefaultCardContents>
+            </AmazonCardContents>
           </Flippy>
-          <FlippyOnHover flipDirection="horizontal"/>
-          <FlippyOnClick flipDirection="horizontal"/>
-          <Flippy
-            ref={(r) => this.flippyVertical = r}
-            flipOnClick={false}
-            flipDirection="vertical"
-            style={FlippyStyle}
-          >
-            <DefaultCardContents>
-              I flip vertically with an event<br />
-              <button type="button" onClick={() => this.flippyVertical.toggle()}>Toggle Me!</button>
-            </DefaultCardContents>
-          </Flippy>
-          <FlippyOnHover />
-          <FlippyOnClick />
-          <ControlledFlippy
-            isFlipped={this.state.isFlipped}
-          />
         </div>
       </div>
     );
   }
 }
 
-export default FlipCard;
+export default AmazonCard;
