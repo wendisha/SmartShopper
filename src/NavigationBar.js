@@ -4,7 +4,7 @@ import TopSearches from './TopSearches'
 import { NavLink } from 'react-router-dom';
 import DropDown from './DropDown'
 import logo from './assets/logo.png'
-import './App.css'
+// import './App.css'
 import SearchContainer from './Containers/SearchContainer'
 
 // import {
@@ -29,14 +29,14 @@ const link = {
   margin: '0 6px 6px',
   background: 'white',
   textDecoration: 'none',
-  color: 'black',
+  color: 'white',
 }
 
 
 const NavigationBar = () => {
   return (
     <div>
-      <Navbar bg="dark" size="medium" variant="dark">
+      <Navbar bg="dark" size="large" variant="dark">
     <NavLink
    to="/About"
    exact

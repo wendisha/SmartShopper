@@ -6,6 +6,9 @@ import ItemFrontCard from './ItemFrontCard'
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import ProductDetail from './ProductDetail'
 import './newstyle.css'
+import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage,
+MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from "mdbreact";
+
 
 
 const styles = {
@@ -13,6 +16,8 @@ const styles = {
   textAlign: "center",
   paddingTop: "50px"
 };
+
+
 
 //
 const ItemDetail = ({
@@ -24,18 +29,31 @@ const ItemDetail = ({
 }) => {
 
   return (
+     <MDBContainer>
+      <MDBCarousel activeItem={1} length={25} slide={true} showControls={true} showIndicators={true} multiItem>
+         <MDBCarouselInner>
+          <MDBRow>
         <Router>
     <div className="menu-bar">
-      <div className="menu-item" style={styles}>
+      <div className="menu-item"style={styles}>
+        <MDBCard className="mb-2">
+          <MDBCardImage className="img-fluid" src={product_image} />
   <Link to={`/${product_id}`} activeClassName="active">{product_title} </Link>
-   <img src={product_image} />
+          </MDBCard>
         </div>
             <Route exact path={`/${product_id}`} render={()=><ProductDetail product_id={product_id}/>}/>
     </div>
       </Router>
+       </MDBRow>
+        </MDBCarouselInner>
+       </MDBCarousel>
+    </MDBContainer>
   );
 }
 // // //
+
+
+
 const Item = ({ items }) =>  <div className="menu-list">{items.map(ItemDetail)} </div>;
 
  // const Item = ({ items }) =>  {

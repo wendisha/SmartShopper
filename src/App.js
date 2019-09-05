@@ -16,7 +16,8 @@ import Contact from './Contact'
 
 
 import FlipCard from './FlipCard';
-import SlideShow from './SlideShow'
+import MultiCarousel from './MultiCarousel'
+
 
 
 
@@ -29,11 +30,11 @@ function App() {
        <header className="App-header">
         <Router>
          <PracticeBar/>
-        <Route exact path="/About" component={About} />
+        <Route exact path="/About" component={FlipCard} />
         <Route exact path="/Contact" component={Contact} />
           <DropDown/>
-        <SearchContainer/> 
-          <SlideShow/>
+        <SearchContainer/>
+
          </Router>
        </header>
     </div>

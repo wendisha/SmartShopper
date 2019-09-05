@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import Flippy, { FrontSide, BackSide } from '././lib';
 import './App.css'
 
-import Rick from './rick.png';
+import Amazon from './assets/amazon.jpg';
+import Ebay from './assets/ebay_store.png'
+import Flipkart from './assets/flipkart_store.png'
+import Infibeam from './assets/infibeam.jpg'
+import ShopeClues from './assets/Shopclues.png'
+import TataCliq from './assets/TataCliq.jpg'
+import Rick from './rick.png'
 
 
 const FlippyStyle = {
@@ -20,14 +26,14 @@ const DefaultCardContents = ({ children }) => (
   <React.Fragment>
     <FrontSide
       style={{
-        backgroundColor: '#41669d',
+        backgroundColor:'white',
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column'
       }}
     >
       <img
-        src={Rick}
+        src={Amazon}
         style={{ maxWidth: '100%', maxHeight: '100%' }}
       />
       RICK
