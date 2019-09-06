@@ -4,23 +4,8 @@ import TopSearches from './TopSearches'
 import { NavLink } from 'react-router-dom';
 import DropDown from './DropDown'
 import logo from './assets/logo.png'
-// import './App.css'
 import SearchContainer from './Containers/SearchContainer'
 
-// import {
-//   Collapse,
-//   NavbarToggler,
-//   NavbarBrand,
-//   Nav,
-//   NavItem,
-//   NavLink,
-//   UncontrolledDropdown,
-//   DropdownToggle,
-//   DropdownMenu,
-//   DropdownItem } from 'reactstrap';
-
-
-// import { Navbar } from 'react-bootstrap';
 import {  Navbar } from 'reactstrap';
 
 const link = {

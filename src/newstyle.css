@@ -5,17 +5,13 @@
 }
 
 .menu-item {
-  width: 100px;
-  display: inline-block;
+  width: 120px;
+  display: inline;
   padding: 15px 10px;
   cursor: pointer;
   text-transform: uppercase;
 }
 
-.menu-item:hover {
-  background: #656565;
-  color: #ffffff;
-}
 div{
 display:flex;
 }

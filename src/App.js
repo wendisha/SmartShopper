@@ -8,33 +8,24 @@ import NavigationBar from './NavigationBar'
 import About from './About'
 import TopSearches from './TopSearches'
 import Categories from './Categories'
-import PracticeBar from './PracticeBar'
+import NavBar from './NavBar'
 import DropDown from './DropDown'
-import Gallery from './Gallery'
-
 import Contact from './Contact'
-
-
 import CardComponent from './CardComponent'
-
-
-
-
-
 import SearchContainer from './Containers/SearchContainer'
+
 
 
 function App() {
   return (
-    <div className="App">
+    <div>
        <header className="App-header">
         <Router>
-         <PracticeBar/>
-        <Route exact path="/About" component={CardComponent} />
+         <NavBar/>
+        <Route exact path="/About" component={About} />
         <Route exact path="/Contact" component={Contact} />
-          <DropDown/>
-        <SearchContainer/>
-
+         <SearchContainer/>
+                  <DropDown/>
          </Router>
        </header>
     </div>

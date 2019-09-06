@@ -6,12 +6,14 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
+
+
 // const link = {
 //   textDecoration: 'underline'
 // }
 
 
-const PracticeBar = () => {
+const NavigationBar = () => {
     return (
         <Navbar bg="dark" variant="dark">
           <Nav className="mr-auto">
@@ -30,4 +32,4 @@ const PracticeBar = () => {
 
 
 
-export default PracticeBar
+export default NavigationBar
