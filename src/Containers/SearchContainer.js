@@ -11,13 +11,11 @@ const BASE_URL = 'https://price-api.datayuge.com/api/v1/compare/search?' + `api_
 
 
 
-
 class SearchContainer extends React.Component {
   state = {
     searchTerm: '',
     items: []
   };
-
 
     handleSearchInputChange = event => {
     this.setState({
