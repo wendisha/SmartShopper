@@ -22,7 +22,7 @@ const NavigationBar = () => {
             <NavLink tag={Link} to="/Contact">Contact</NavLink>
           </Nav>
         </Navbar>
-
+        
     )
 
 }

@@ -1,14 +1,11 @@
 import React from 'react'
 import { Button} from 'reactstrap';
 import Item from '../Item'
-import ItemDetail from '../ItemDetail'
-
 
 
 
 const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 const BASE_URL = 'https://price-api.datayuge.com/api/v1/compare/search?' + `api_key=${priceYugeAPI_KEY}&product=`;
-
 
 
 class SearchContainer extends React.Component {

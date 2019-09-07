@@ -11,7 +11,6 @@ import Categories from './Categories'
 import NavBar from './NavBar'
 import DropDown from './DropDown'
 import Contact from './Contact'
-import CardComponent from './CardComponent'
 import SearchContainer from './Containers/SearchContainer'
 
 

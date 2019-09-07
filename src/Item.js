@@ -5,11 +5,11 @@ import About from './About'
 import ItemFrontCard from './ItemFrontCard'
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import ProductDetail from './ProductDetail'
+import CompareCard from './CompareCard'
+
 import './newstyle.css'
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage,
 MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from "mdbreact";
-
-
 
 
 const styles = {
@@ -19,8 +19,6 @@ const styles = {
 };
 
 
-
-//
 const ItemDetail = ({
   product_id,
   product_title,
@@ -30,30 +28,18 @@ const ItemDetail = ({
 }) => {
 
   return (
-     <MDBContainer>
-      // <MDBCarousel activeItem={1} length={25} slide={true} showControls={true} showIndicators={true} multiItem>
-         // <MDBCarouselInner>
-          <MDBRow>
         <Router>
-    <div className="menu-bar">
-      <div className="menu-item"style={styles}>
-        <MDBCard className="mb-2">
-          <MDBCardImage className="img-fluid" src={product_image} />
+      <div className="item-card">
+        <img src={product_image} />
   <Link to={`/${product_id}`} component={ProductDetail} activeClassName="active">{product_title}</Link>
-    </MDBCard>
+  <Link to='/item' component={CompareCard}>Compare</Link>
   <Route exact path={`/${product_id}`} render={()=><ProductDetail product_id={product_id}/>}/>
+  <Route exact path='/item' render={()=><CompareCard product_id={product_id}/>}/>
 </div>
-
-        </div>
-
       </Router>
-       </MDBRow>
-        // </MDBCarouselInner>
-       // </MDBCarousel>
-    </MDBContainer>
+
   );
 }
-// // //
 
 
 
@@ -80,8 +66,5 @@ const Item = ({ items }) =>  <div className="menu-list">{items.map(ItemDetail)} 
 //         </div>
 //     )
 // }
-
-
-
 
 export default Item

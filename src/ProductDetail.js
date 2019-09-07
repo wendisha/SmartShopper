@@ -12,7 +12,6 @@ class ProductDetail extends React.Component {
 
 
     productDetail(){
-
        fetch('https://price-api.datayuge.com/api/v1/compare/specs?' + `api_key=${priceYugeAPI_KEY}&id=${this.props.product_id}`)
        .then(response => response.json())
          // console.log(response.json())
@@ -53,7 +52,6 @@ class ProductDetail extends React.Component {
         return(
           <div>
             Product Details
-
             {this.state.product_details}
           </div>
         )
