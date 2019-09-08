@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button} from 'reactstrap';
 import Item from '../Item'
-
+import { MDBContainer, MDBCol, MDBRow, MDBCard, MDBCardUp, MDBCardBody, MDBAvatar, MDBRotatingCard, MDBIcon } from "mdbreact";
 
 
 const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
@@ -14,11 +14,14 @@ class SearchContainer extends React.Component {
     items: []
   };
 
+
     handleSearchInputChange = event => {
     this.setState({
       searchTerm: event.target.value,
     });
   }
+
+
 
   handleSubmit= event =>{
     event.preventDefault();

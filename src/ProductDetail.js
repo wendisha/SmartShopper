@@ -10,17 +10,17 @@ class ProductDetail extends React.Component {
       product_details: []
   };
 
-
-    productDetail(){
-       fetch('https://price-api.datayuge.com/api/v1/compare/specs?' + `api_key=${priceYugeAPI_KEY}&id=${this.props.product_id}`)
-       .then(response => response.json())
-         // console.log(response.json())
-       .then(jsonResp => this.setState({product_details: jsonResp.data.main_specs}));//
-       console.log('state', this.state.product_details)
-       //set state to jsoResp
+componentDidMount(){
+  fetch('https://price-api.datayuge.com/api/v1/compare/specs?' + `api_key=${priceYugeAPI_KEY}&id=${this.props.product_id}`)
+  .then(response => response.json())
+    // console.log(response.json())
+  .then(jsonResp => this.setState({product_details: jsonResp.data.main_specs}));//
+  console.log('state', this.state.product_details)
+  //set state to jsoResp
+}
 
        // console.log('product detail', productdetail);
-     };
+
 
 
   // handleClick= event =>{
@@ -48,12 +48,15 @@ class ProductDetail extends React.Component {
   // };
 
  render() {
-     {this.productDetail()}
         return(
           <div>
+            <p>
+              <td>
             Product Details
-            {this.state.product_details}
-          </div>
+              {this.state.product_details}
+              </td>
+             </p>
+           </div>
         )
     }
 }

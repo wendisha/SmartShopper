@@ -29,13 +29,13 @@ const ItemDetail = ({
 
   return (
         <Router>
-      <div className="item-card">
+      <tr className="item-card">
         <img src={product_image} />
-  <Link to={`/${product_id}`} component={ProductDetail} activeClassName="active">{product_title}</Link>
+  <Link to={`/${product_id}`} component={ProductDetail}> Product Details </Link>
   <Link to='/item' component={CompareCard}>Compare</Link>
   <Route exact path={`/${product_id}`} render={()=><ProductDetail product_id={product_id}/>}/>
   <Route exact path='/item' render={()=><CompareCard product_id={product_id}/>}/>
-</div>
+</tr>
       </Router>
 
   );
@@ -43,7 +43,15 @@ const ItemDetail = ({
 
 
 
-const Item = ({ items }) =>  <div className="menu-list">{items.map(ItemDetail)} </div>;
+const Item = ( {items} ) =>  <div className="menu-list">
+    {items.map(ItemDetail)}
+</div>;
+//
+// function Item ({items}){
+//    return <div> {items.map(ItemDetail)} </div>
+// }
+
+
 
  // const Item = ({ items }) =>  {
  //    return (
