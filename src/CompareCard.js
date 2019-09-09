@@ -19,20 +19,20 @@ const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
      }
 
      retrieveStoreInfo(array){
-       {Object.values(this.state.product_compare).map((storeObj, index) => {
-           for (let key of Object.keys(storeObj)) {
-               let store = storeObj[key];
- // ... do something with mealName
-          console.log('store name', store.product_store, 'price', store.product_price);
-           }
-            // return <p> {console.log('prices', Object.values(store))} </p>
-          })}
+
      }
 
   render() {
     return (
       <div>
-          {this.retrieveStoreInfo(this.state.product_compare)}
+        {Object.values(this.state.product_compare).map((storeObj, index) => {
+          for (let key of Object.keys(storeObj)) {
+              let store = storeObj[key];
+// ... do something with mealName
+           return <li> {store.product_price}, {store.product_store}</li>;
+          }
+           // return <p> {console.log('prices', Object.values(store))} </p>
+         })}
       </div>
     )
   }
