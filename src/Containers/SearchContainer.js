@@ -9,38 +9,51 @@ const BASE_URL = 'https://price-api.datayuge.com/api/v1/compare/search?' + `api_
 
 
 class SearchContainer extends React.Component {
-  state = {
-    searchTerm: '',
-    items: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: ''
+    };
 
+  }
+  //
+  //   handleSearchInputChange = event => {
+  //   this.setState({
+  //     searchTerm: event.target.value,
+  //   });
+  // }
 
-    handleSearchInputChange = event => {
+  handleSearchInputChange = event => {
     this.setState({
       searchTerm: event.target.value,
     });
   }
 
-
-
   handleSubmit= event =>{
-    event.preventDefault();
+      event.preventDefault();
 
-  fetch(BASE_URL.concat(this.state.searchTerm))
-    .then(response => response.json())
-      // console.log(response.json())
-    .then(jsonResp => this.setState({items: jsonResp.data}));
-  };
+      console.log('searchTerm', this.state.searchTerm)
+   };
 
+
+
+  // <Item xyz={st} />
+  // fetch(BASE_URL.concat(this.state.searchTerm))
+  //   .then(response => response.json())
+  //     // console.log(response.json())
+  //   .then(jsonResp => this.setState({items: jsonResp.data}));
 
   render() {
+
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
             <input id="searchterm" name="searchterm" type="text" placeholder="Search Item"  onChange={this.handleSearchInputChange}/>
                   <Button type="submit" color="primary" size="sm">Search</Button>
          </form>
-            <Item items={this.state.items} />
+
+         <Item st={this.state.searchTerm}/>
+
         </div>
     );
   }

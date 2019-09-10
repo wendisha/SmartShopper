@@ -42,7 +42,7 @@ activeStyle={{
 }}
 >Top Searches</NavLink>
   // <DropDown/>
-   <SearchContainer/>
+
   </Navbar>
 
 </div>

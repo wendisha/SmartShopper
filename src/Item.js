@@ -11,6 +11,8 @@ import './newstyle.css'
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage,
 MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from "mdbreact";
 
+const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
+const BASE_URL = 'https://price-api.datayuge.com/api/v1/compare/search?' + `api_key=${priceYugeAPI_KEY}&product=`
 
 const styles = {
   fontFamily: "sans-serif",
@@ -19,33 +21,61 @@ const styles = {
 };
 
 
-const ItemDetail = ({
-  product_id,
-  product_title,
-  product_link,
-  product_image,
-  product_lowest_price
-}) => {
+// const ItemDetail = ({
+//   product_id,
+//   product_title,
+//   product_link,
+//   product_image,
+//   product_lowest_price
+// }) => {
+//
+//   return (
+//    <Router>
+//       <tr className="item-card">
+//         <img src={product_image} />
+//   <Link to={`/${product_id}`} component={ProductDetail}> Product Details </Link>
+//   <Link to='/item' component={CompareCard}>Compare</Link>
+//   <Route exact path={`/${product_id}`} render={()=><ProductDetail product_id={product_id}/>}/>
+//   <Route exact path='/item' render={()=><CompareCard product_id={product_id}/>}/>
+// </tr>
+//    </Router>
+//   );
+// }
 
-  return (
-        <Router>
-      <tr className="item-card">
-        <img src={product_image} />
-  <Link to={`/${product_id}`} component={ProductDetail}> Product Details </Link>
-  <Link to='/item' component={CompareCard}>Compare</Link>
-  <Route exact path={`/${product_id}`} render={()=><ProductDetail product_id={product_id}/>}/>
-  <Route exact path='/item' render={()=><CompareCard product_id={product_id}/>}/>
-</tr>
-      </Router>
+class Item extends React.Component {
+  state = {
+    items: []
+  };
 
-  );
+   componentDidMount(){
+     fetch('https://price-api.datayuge.com/api/v1/compare/search?' + `api_key=${priceYugeAPI_KEY}&product=${this.props.st}`)
+      .then(response => response.json())
+  // console.log(response.json())
+      .then(jsonResp => this.setState({items: jsonResp.data}));
+  }
+
+  render() {
+    return (
+        <div>
+
+          // {this.state.items.map(item => {
+          //   return <li key={item.product_id} product_title={item.product_title} product_image={item.product_image} product_lowest_price={this.product_lowest_price}></li>
+          // })}
+
+        </div>
+
+    );
+  }
 }
 
 
 
-const Item = ( {items} ) =>  <div className="menu-list">
-    {items.map(ItemDetail)}
-</div>;
+
+
+// const Item = ( {items} ) =>  <div className="menu-list">
+//     {items.map(ItemDetail)}
+// </div>;
+
 //
 // function Item ({items}){
 //    return <div> {items.map(ItemDetail)} </div>

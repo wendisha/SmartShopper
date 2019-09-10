@@ -23,8 +23,7 @@ function App() {
          <NavBar/>
         <Route exact path="/About" component={About} />
         <Route exact path="/Contact" component={Contact} />
-         <SearchContainer/>
-                  <DropDown/>
+        <Route exact path="/Search" component={SearchContainer}/>
          </Router>
        </header>
     </div>

@@ -12,7 +12,6 @@ import Navbar from 'react-bootstrap/Navbar'
 //   textDecoration: 'underline'
 // }
 
-
 const NavigationBar = () => {
     return (
         <Navbar bg="dark" variant="dark">
@@ -20,9 +19,10 @@ const NavigationBar = () => {
             <NavLink tag={Link} to="/about">About</NavLink>
             <NavLink tag={Link} to="/TopSearches">Top Searches</NavLink>
             <NavLink tag={Link} to="/Contact">Contact</NavLink>
+            <NavLink tag={Link} to="/Search">Search</NavLink>
           </Nav>
         </Navbar>
-        
+
     )
 
 }
