@@ -6,10 +6,10 @@ import ItemFrontCard from './ItemFrontCard'
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import ProductDetail from './ProductDetail'
 import CompareCard from './CompareCard'
+import './Item.css'
+
 
 import './newstyle.css'
-import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage,
-MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from "mdbreact";
 
 const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 const BASE_URL = 'https://price-api.datayuge.com/api/v1/compare/search?' + `api_key=${priceYugeAPI_KEY}&product=`
@@ -44,31 +44,32 @@ const styles = {
 
 class Item extends React.Component {
   state = {
-    items: []
+    items: [],
   };
 
-   componentDidMount(){
-     fetch('https://price-api.datayuge.com/api/v1/compare/search?' + `api_key=${priceYugeAPI_KEY}&product=${this.props.st}`)
-      .then(response => response.json())
-  // console.log(response.json())
-      .then(jsonResp => this.setState({items: jsonResp.data}));
-  }
+
 
   render() {
+        const arr = [ <br />, <br/>];
+        {this.state.items = this.props.items}
+         {console.log('prop', this.props.items.length)}
+         {console.log('length', this.state.items.length)}
+         {console.log('items', this.state.items)}
     return (
+
         <div>
 
-          // {this.state.items.map(item => {
-          //   return <li key={item.product_id} product_title={item.product_title} product_image={item.product_image} product_lowest_price={this.product_lowest_price}></li>
-          // })}
+    {this.state.items.map((item, index) => (
+      <p> {arr}
+        <tr className="item-card"> {item.product_title} <br/> &nbsp; <img src={item.product_image}/></tr>
+        </p>
+    ))}
+    </div>);
 
-        </div>
-
-    );
   }
 }
 
-
+  // <li> {item.product_id} {item.product_title} {item.product_image} </li>
 
 
 
