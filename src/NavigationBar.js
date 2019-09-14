@@ -1,10 +1,9 @@
 import React from 'react'
-import About from './About.js'
-import TopSearches from './TopSearches'
+// import About from './About.js'
+// import TopSearches from './TopSearches'
 import { NavLink } from 'react-router-dom';
-import DropDown from './DropDown'
-import logo from './assets/logo.png'
-import SearchContainer from './Containers/SearchContainer'
+// import DropDown from './DropDown'
+
 
 import {  Navbar } from 'reactstrap';
 
@@ -41,7 +40,7 @@ activeStyle={{
   background: 'white'
 }}
 >Top Searches</NavLink>
-  // <DropDown/>
+
 
   </Navbar>
 

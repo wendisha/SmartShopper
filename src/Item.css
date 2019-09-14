@@ -8,11 +8,11 @@
   transform-style: preserve-3d;
 }
 
-/* .item-card:hover {
+/.item-card:hover {
   transform: scale(1.05)
-} */
+}
 
-.item-card:active {
+ .item-card:active {
   transform: rotateY(180deg) scale(1.05);
 }
 

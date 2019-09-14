@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button} from 'reactstrap';
+//import { Button} from 'reactstrap';
 
 
-const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
+//const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 
 // const BASE_URL = 'https://price-api.datayuge.com/api/v1/compare/detail?' + `api_key=${priceYugeAPI_KEY}&id=${this.props.product_id}`;
 
@@ -19,8 +19,8 @@ class ProductDetail extends React.Component {
 //   console.log('state', this.state.product_details)
 //   //set state to jsoResp
 // }
-
-       // console.log('product detail', productdetail);
+//
+//        // console.log('product detail', productdetail);
 
 
 
@@ -53,17 +53,35 @@ class ProductDetail extends React.Component {
     //   <p>
     //     <tr>
     //       {itemDetailObj.main_specs}
+    // {this.state.itemDetails.map((itemDetail, index) => (
+    //   <p> {arr}
+    //     {console.log('index', index)}
+    //     <tr className> itemDetails {itemDetail[index]} </tr>
+    //     </p>
+    // ))}
 
  render() {
-    {this.state.itemDetails = this.props.itemDetails}
-     console.log('state', this.state.itemDetails)
+   const arr = [ <br />, <br/>];
+     {this.state.itemDetails = this.props.itemDetails}
+     //this.setState(this.state.itemDetails: this.props.itemDetails)
+    // this.setState({this.state.itemDetails: this.props.itemDetails});
+     // console.log('state', this.state.itemDetails)
      // console.log('props', this.props.itemDetails)
+     //console.log('ItemDetails ProductDetail', this.state.itemDetails)
         return(
-          <div>
+            <div>
+            {this.state.itemDetails.map((itemDetail, index) => (
+              <p> {arr}
+              <tr> {itemDetail} Babu </tr>
+              </p>
+            ))}
+            </div>);
 
-           </div>
-        )
-    }
+        }
+
+
 }
+
+
 
 export default ProductDetail

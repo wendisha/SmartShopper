@@ -1,24 +1,24 @@
 import React from 'react'
 
-import { Link } from "react-router-dom";
-import About from './About'
-import ItemFrontCard from './ItemFrontCard'
-import { BrowserRouter as Router, Route} from "react-router-dom";
-import ProductDetail from './ProductDetail'
-import CompareCard from './CompareCard'
+// import { Link } from "react-router-dom";
+// import About from './About'
+// import ItemFrontCard from './ItemFrontCard'
+// import { BrowserRouter as Router, Route} from "react-router-dom";
+// import ProductDetail from './ProductDetail'
+// import CompareCard from './CompareCard'
 import './Item.css'
 
 
 import './newstyle.css'
 
-const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
-const BASE_URL = 'https://price-api.datayuge.com/api/v1/compare/search?' + `api_key=${priceYugeAPI_KEY}&product=`
+//const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
+//const BASE_URL = 'https://price-api.datayuge.com/api/v1/compare/search?' + `api_key=${priceYugeAPI_KEY}&product=`
 
-const styles = {
-  fontFamily: "sans-serif",
-  textAlign: "center",
-  paddingTop: "50px"
-};
+// const styles = {
+//   fontFamily: "sans-serif",
+//   textAlign: "center",
+//   paddingTop: "50px"
+// };
 
 
 // const ItemDetail = ({
@@ -50,21 +50,21 @@ class Item extends React.Component {
 
 
   render() {
-        const arr = [ <br />, <br/>];
+  //      const arr = [ <br />, <br/>];
         {this.state.items = this.props.items}
-         {console.log('prop', this.props.items.length)}
-         {console.log('length', this.state.items.length)}
-         {console.log('items', this.state.items)}
+         // {console.log('prop', this.props.items.length)}
+         // {console.log('length', this.state.items.length)}
+        //  {console.log('items', this.state.items)}
     return (
 
         <div>
 
-    {this.state.items.map((item, index) => (
-      <p> {arr}
-        <tr className="item-card"> {item.product_title} <br/> &nbsp; <img src={item.product_image}/></tr>
-        </p>
-    ))}
-    </div>);
+          {this.state.items.map((item, index) => (
+
+            <tr className="item-card"> {item.product_title} <br/> &nbsp; <img src={item.product_image}/></tr>
+
+            ))}
+        </div>);
 
   }
 }

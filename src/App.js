@@ -4,12 +4,11 @@ import {
   Route
 } from 'react-router-dom';
 
-import NavigationBar from './NavigationBar'
 import About from './About'
-import TopSearches from './TopSearches'
-import Categories from './Categories'
+// import TopSearches from './TopSearches'
+// import Categories from './Categories'
 import NavBar from './NavBar'
-import DropDown from './DropDown'
+// import DropDown from './DropDown'
 import Contact from './Contact'
 import SearchContainer from './Containers/SearchContainer'
 
