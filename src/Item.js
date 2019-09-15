@@ -1,10 +1,10 @@
 import React from 'react'
 
-// import { Link } from "react-router-dom";
+ import { Link, Route, Router,HashRouter } from "react-router-dom";
 // import About from './About'
 // import ItemFrontCard from './ItemFrontCard'
 // import { BrowserRouter as Router, Route} from "react-router-dom";
-// import ProductDetail from './ProductDetail'
+ import ProductDetail from './ProductDetail'
 // import CompareCard from './CompareCard'
 import './Item.css'
 
@@ -50,21 +50,43 @@ class Item extends React.Component {
 
 
   render() {
-  //      const arr = [ <br />, <br/>];
+
         {this.state.items = this.props.items}
+        {console.log('Item', this.state.items)}
          // {console.log('prop', this.props.items.length)}
          // {console.log('length', this.state.items.length)}
         //  {console.log('items', this.state.items)}
+        // {item.product_title} <img src={item.product_image}
     return (
 
         <div>
+            <table>
 
-          {this.state.items.map((item, index) => (
+              {this.state.items.map((item, index) => (
 
-            <tr className="item-card"> {item.product_title} <br/> &nbsp; <img src={item.product_image}/></tr>
+                  <td>
+
+                      <p> &nbsp;</p>
+                      <p> &nbsp;</p>
+                      <p> &nbsp;</p>
+                      <p></p>
+                      <p>  <img src={item.product_image}/></p>
+                       <p>{item.product_title}</p>
+                       <HashRouter>
+                       <Link to={`/${item.product_id}`} component={ProductDetail} > Product Details </Link>
+                       <Route exact path={`/${item.product_id}`} render={()=><ProductDetail product_id={item.product_id}/>}/>
+                       </HashRouter>
+                 </td>
+
 
             ))}
-        </div>);
+            </table>
+
+        </div>
+    //
+      );
+
+
 
   }
 }

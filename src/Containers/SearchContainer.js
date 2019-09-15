@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button} from 'reactstrap';
 import '../App.css'
-import ItemCard from '../ItemCard'
+import Item from '../Item'
 import '../Item.css'
 // import { MDBContainer, MDBCol, MDBRow, MDBCard, MDBCardUp, MDBCardBody, MDBAvatar, MDBRotatingCard, MDBIcon } from "mdbreact";
 
@@ -30,9 +30,6 @@ class SearchContainer extends React.Component {
 
   handleSubmit= event =>{
     event.preventDefault();
-    this.setState({
-      searchTerm: event.target.value,
-    });
     console.log('search term',this.state.searchTerm)
   fetch(BASE_URL.concat(this.state.searchTerm))
     .then(response => response.json())
@@ -41,23 +38,22 @@ class SearchContainer extends React.Component {
     // console.log('URL',BASE_URL.concat(this.state.searchTerm))
     // console.log('After Handle Subimt/fetch',this.state.items)
     // console.log('Creating Item Detail')
-    console.log('inSearch Items', this.state.items)
-     this.generateItemDetail()
+
 
   };
 
- generateItemDetail(){
+ // generateItemDetail(){
+ //
+ //    {this.state.items.map((item, index) => (
+ //
+ //    fetch('https://price-api.datayuge.com/api/v1/compare/specs?' + `api_key=${priceYugeAPI_KEY}&id=${item.product_id}`)
+ //     .then(response => response.json())
+ //
+ //     .then(jsonResp => this.state.itemDetails.(jsonResp.data))));
+ //   };
 
-    {this.state.items.map((item, index) => (
 
-    fetch('https://price-api.datayuge.com/api/v1/compare/specs?' + `api_key=${priceYugeAPI_KEY}&id=${item.product_id}`)
-     .then(response => response.json())
-
-     .then(jsonResp => this.state.itemDetails.(jsonResp.data))));
-   };
-
-       console.log('Search ItemDetails', this.state.itemDetails)
-}
+// }
  //generateItemDetail
 // map thru item array and for each item id append the item deails to the itemdeail array
 // this.state.ItemDetail.push = whatever u get from the secon api for a give itemi
@@ -72,13 +68,13 @@ class SearchContainer extends React.Component {
 
       <div>
         <form onSubmit={this.handleSubmit}>
-            <input id="searchterm" name="searchterm" type="text" placeholder="Search Item"  />
+          <input id="searchterm" name="searchterm" type="text" placeholder="Search Item"  onChange={this.handleSearchInputChange}/>
              <Button type="submit" color="primary"  className="text-center" size="sm">Search</Button>
 
 
          </form>
           <div>
-            <ItemCard items={this.state.items} itemDetails={this.state.itemDetails} className="item-front" />
+            <Item items={this.state.items}  />
           </div>
         </div>
 
