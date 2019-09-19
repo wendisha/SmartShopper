@@ -15,8 +15,6 @@ class SearchContainer extends React.Component {
   state = {
     searchTerm: '',
     items: [],
-    itemDetails: []
-
   };
 
 

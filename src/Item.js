@@ -5,6 +5,7 @@ import React from 'react'
 // import ItemFrontCard from './ItemFrontCard'
 // import { BrowserRouter as Router, Route} from "react-router-dom";
  import ProductDetail from './ProductDetail'
+ import CompareCard from './CompareCard'
 // import CompareCard from './CompareCard'
 import './Item.css'
 
@@ -63,19 +64,17 @@ class Item extends React.Component {
             <table>
 
               {this.state.items.map((item, index) => (
-
                   <td>
-
-                      <p> &nbsp;</p>
-                      <p> &nbsp;</p>
                       <p> &nbsp;</p>
                       <p></p>
                       <p>  <img src={item.product_image}/></p>
                        <p>{item.product_title}</p>
                        <HashRouter>
-                       <Link to={`/${item.product_id}`} component={ProductDetail} > Product Details </Link>
-                       <Route exact path={`/${item.product_id}`} render={()=><ProductDetail product_id={item.product_id}/>}/>
-                       </HashRouter>
+                          <p><Link to={`/Compare/${item.product_id}`} > Compare Prices </Link></p>
+                          <p><Link to={`/${item.product_id}`} component={ProductDetail} > Product Details </Link></p>
+                          <Route exact path={`/${item.product_id}`} render={()=><ProductDetail product_id={item.product_id}/>}/>
+                          <Route exact path={`/Compare/${item.product_id}`} render={()=><CompareCard product_id={item.product_id}/>}/>
+                        </HashRouter>
                  </td>
 
 
@@ -91,41 +90,5 @@ class Item extends React.Component {
   }
 }
 
-  // <li> {item.product_id} {item.product_title} {item.product_image} </li>
-
-
-
-// const Item = ( {items} ) =>  <div className="menu-list">
-//     {items.map(ItemDetail)}
-// </div>;
-
-//
-// function Item ({items}){
-//    return <div> {items.map(ItemDetail)} </div>
-// }
-
-
-
- // const Item = ({ items }) =>  {
- //    return (
- //   <div className="menu-item">
- //     {items.map(function(item) {
- //         return (
- //         <h4 key={item.product_id} product_title={item.product_title}> </h4>
- //       )
- //     })}
- //   </div>
- //  )
- // }
-
-// function Item({items}) {
-//     const itemcomponents = items.map(item => <h3 key={item.product_id} product_title={item.product_title}/>)
-//
-//     return (
-//         <div>
-//             {product_title}
-//         </div>
-//     )
-// }
 
 export default Item

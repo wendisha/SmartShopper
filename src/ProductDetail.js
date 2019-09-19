@@ -1,23 +1,30 @@
 import React from 'react'
 //import { Button} from 'reactstrap';
+ import { Link, Route, Router,HashRouter } from "react-router-dom";
+ 
 
 
 const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 
 // const BASE_URL = 'https://price-api.datayuge.com/api/v1/compare/detail?' + `api_key=${priceYugeAPI_KEY}&id=${this.props.product_id}`;
+  // {this.state.product_details.main_specs}
 
 class ProductDetail extends React.Component {
     state = {
       product_details: []
+
   };
+
   componentDidMount(){
-    console.log("In Product Detail")
+
     fetch('https://price-api.datayuge.com/api/v1/compare/specs?' + `api_key=${priceYugeAPI_KEY}&id=${this.props.product_id}`)
     .then(response => response.json())
       // console.log(response.json())
-    .then(jsonResp => this.setState({product_details: jsonResp.data.main_specs}));//
-    console.log('state', this.state.product_details)
+    .then(jsonResp => this.setState({product_details: jsonResp.data.main_specs}));
+      // this.setState({product_details: jsonResp.data.main_specs}));//
+    // console.log('state', this.state.product_details)
     //set state to jsoResp
+
   }
 
 //        // console.log('product detail', productdetail);
@@ -60,23 +67,33 @@ class ProductDetail extends React.Component {
     //     </p>
     // ))}
 
+// <Route exact path={`/${this.props.product_id}`} render={()=><ProductDetail product_id={this.props.product_id}/>}/>
+// <Route exact path={`/compare/`} render={()=><CompareCard product_id={this.props.product_id}/>}/>
  render() {
-   // const arr = [ <br />, <br/>];
-   //   {this.state.itemDetails = this.props.itemDetails}
-     //this.setState(this.state.itemDetails: this.props.itemDetails)
-    // this.setState({this.state.itemDetails: this.props.itemDetails});
-     // console.log('state', this.state.itemDetails)
-     // console.log('props', this.props.itemDetails)
-     //console.log('ItemDetails ProductDetail', this.state.itemDetails)
-        return(
-          <div>
-          <p>
-            <td>
-              Product Details {this.props.product_id}
 
-            </td>
-           </p>
-         </div>
+
+
+        return(
+
+          <div>
+
+
+
+
+
+              <table>
+              <th>Main Specs </th>
+                {this.state.product_details.map((product_detail, index) => (
+                    <tr>
+                        <td>{product_detail}</td>
+                        <p> &nbsp;</p>
+                  </tr>
+
+              ))}
+              </table>
+
+          </div>
+
       )
   }
 
