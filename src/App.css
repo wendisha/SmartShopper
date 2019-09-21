@@ -12,6 +12,9 @@
 .text-center {
    position:absolute;
 }
+.navbar {
+  width: 140%
+}
 /* .App-title {
   font-size: 1.5em;
 }

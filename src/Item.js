@@ -53,16 +53,18 @@ class Item extends React.Component {
   render() {
 
         {this.state.items = this.props.items}
-        {console.log('Item', this.state.items)}
+         console.log('items', this.state.items)
+        // {console.log('Item', this.state.items)}
          // {console.log('prop', this.props.items.length)}
          // {console.log('length', this.state.items.length)}
         //  {console.log('items', this.state.items)}
         // {item.product_title} <img src={item.product_image}
+        if(this.state.items === undefined ){
+           return <center> There are no items found for the search criteria  </center>
+        }
     return (
-
         <div>
             <table>
-
               {this.state.items.map((item, index) => (
                   <td>
                       <p> &nbsp;</p>

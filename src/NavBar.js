@@ -5,6 +5,9 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
+import './App.js'
+
+
 
 
 // const link = {
