@@ -7,10 +7,22 @@
 //   };
 // }
 export function fetchTopSearches() {
-  return (dispatch) => {
-    dispatch({ type: 'FETCH_TOP_SEARCHES' });
-    return fetch('http://api/v1/top_searches)
-      .then(response => response.json())
-      .then(top_searches => dispatch({ type: 'FETCH_TOP_SEARCHES', top_searches }));
-  };
+   return (dispatch) => {
+     fetch('http://localhost:3001/api/v1/top_searches')
+     .then(resp => resp.json())
+     .then(topSearches => dispatch({
+        type: 'FETCH_TOP_SEARCHES',
+        payload: topSearches
+     }))
+
+
+   }
+  // return (dispatch) => {
+  //   fetch('http://localhost:3001/api/v1/top_searches')
+  //     .then(response => response.json())
+  //     .then(topSearches => dispatch({{
+  //       type: 'FETCH_TOP_SEARCHES',
+  //       payload: topSearches
+  //     }})
+  //   }
 }

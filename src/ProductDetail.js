@@ -1,7 +1,7 @@
 import React from 'react'
 //import { Button} from 'reactstrap';
  import { Link, Route, Router,HashRouter } from "react-router-dom";
- 
+
 
 
 const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
@@ -71,15 +71,9 @@ class ProductDetail extends React.Component {
 // <Route exact path={`/compare/`} render={()=><CompareCard product_id={this.props.product_id}/>}/>
  render() {
 
-
-
         return(
 
           <div>
-
-
-
-
 
               <table>
               <th>Main Specs </th>

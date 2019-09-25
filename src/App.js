@@ -10,6 +10,7 @@ import About from './About'
 import NavBar from './NavBar'
 // import DropDown from './DropDown'
 import Contact from './Contact'
+import TopSearches from './TopSearches'
 import SearchContainer from './Containers/SearchContainer'
 
 
@@ -30,12 +31,12 @@ import SearchContainer from './Containers/SearchContainer'
 //   );
 // }
 class App extends React.Component {
-  componentDidMount(){
-    fetch('http://localhost:3000/api/v1/searches')
-    .then(response => response.json())
-      // console.log(response.json())
-    .then(jsonResp => console.log('search Data', jsonResp));
-  }
+  // componentDidMount(){
+  //   fetch('http://localhost:3001/api/v1/top_searches')
+  //   .then(response => response.json())
+  //     // console.log(response.json())
+  //   .then(jsonResp => console.log('search Data', jsonResp));
+  // }
 
     // this.setState({product_details: jsonResp.data.main_specs}));//
   // conso
@@ -68,6 +69,7 @@ class App extends React.Component {
               <Route exact path="/About" component={About} />
               <Route exact path="/Contact" component={Contact} />
               <Route exact path="/Search" component={SearchContainer}/>
+              <Route exact path="/TopSearches" component={TopSearches}/>
               </Router>
               </header>
      </div>

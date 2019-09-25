@@ -1,34 +1,41 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import '../reducers/top_search.js'
+// import '../reducers/top_search.js'
+import {fetchTopSearches} from './actions/fetchTopSearches.js'
 
 
-// function TopSearches() {
-//   return (
-//     <div className="Categories">
-//        Hello!
-//     </div>
-//   );
-// }
+
 
 class TopSearches extends React.Component {
 
   componentDidMount(){
-    this.props.topSearches({type: 'FETCH_TOP_SEARCHES' })
+    {console.log('inside did mount')}
+    this.props.fetchTopSearches()
 
   }
 
   render() {
-    return (
-        'Hello'
-    );
+         return(
+           <div>
+                  // {console.log('topsearches', this.props.topSearches)}
+                  {this.props.topSearches && this.props.topSearches.map((top_search, index) => (
+                        <tr>
+                            <td>{top_search}</td>
+                            <p> &nbsp;</p>
+                      </tr>
+                  ))}
+
+           </div>
+
+       )
+     }
+
   }
-}
 
 const mapStateToProps = state => {
-  return {
-    topSearches: state.topSearches
-  }
+  return (
+    {topSearches: state.topSearches}
+  )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopSearches)
+export default connect(mapStateToProps, {fetchTopSearches})(TopSearches)
