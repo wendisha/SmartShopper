@@ -17,10 +17,13 @@ class TopSearches extends React.Component {
   render() {
          return(
            <div>
-                  // {console.log('topsearches', this.props.topSearches)}
-                  {this.props.topSearches && this.props.topSearches.map((top_search, index) => (
+                   {console.log('topsearches', this.props.topSearches)}
+                   {this.props.topSearches.map((top_search, index) => (
                         <tr>
-                            <td>{top_search}</td>
+                          <td>{Object.keys(top_search).map(function(key) {
+                            return <div>Search: {key}, Count: {top_search[key]}</div>;
+                            })}
+                          </td>
                             <p> &nbsp;</p>
                       </tr>
                   ))}

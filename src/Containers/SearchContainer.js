@@ -3,10 +3,12 @@ import { Button} from 'reactstrap';
 import '../App.css'
 import Item from '../Item'
 import '../Item.css'
+import { connect } from 'react-redux'
+import {fetchSearches} from '../actions/fetchSearches.js'
 // import { MDBContainer, MDBCol, MDBRow, MDBCard, MDBCardUp, MDBCardBody, MDBAvatar, MDBRotatingCard, MDBIcon } from "mdbreact";
 
 
-const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
+ const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 const BASE_URL = 'https://price-api.datayuge.com/api/v1/compare/search?' + `api_key=${priceYugeAPI_KEY}&product=`;
 
 // this.state.itemDetails.push(jsonResp.data.main_specs))));
@@ -68,8 +70,6 @@ class SearchContainer extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <input id="searchterm" name="searchterm" type="text" placeholder="Search Item"  onChange={this.handleSearchInputChange}/>
              <Button type="submit" color="primary"  className="text-center" size="sm">Search</Button>
-
-
          </form>
           <div>
             <Item items={this.state.items}  />
@@ -80,5 +80,11 @@ class SearchContainer extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return (
+    {searches: state.searches}
+  )
+}
 
-export default SearchContainer;
+
+export default connect(mapStateToProps, {fetchSearches})(SearchContainer);
