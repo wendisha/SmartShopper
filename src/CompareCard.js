@@ -14,19 +14,19 @@ const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 // 'https://price-api.datayuge.com/api/v1/compare/detail?' + `api_key=${priceYugeAPI_KEY}&id=${this.props.product_id}`
 
  class CompareCard extends React.Component {
-   state = {
-     product_compare: [],
-     objKeys: [],
-   };
-
-   componentDidMount(){
-     console.log('inside did mount')
-     console.log('prop', this.props.product_id)
-     fetch('https://price-api.datayuge.com/api/v1/compare/detail?' + `api_key=${priceYugeAPI_KEY}&id=${this.props.product_id}`)
-       .then(response => response.json())
-       .then(jsonResp => this.setState({product_compare: jsonResp.data.stores}));
-
-    }
+   // state = {
+   //   product_compare: [],
+   //   objKeys: [],
+   // };
+   //
+   // componentDidMount(){
+   //   console.log('inside did mount')
+   //   console.log('prop', this.props.product_id)
+   //   fetch('https://price-api.datayuge.com/api/v1/compare/detail?' + `api_key=${priceYugeAPI_KEY}&id=${this.props.product_id}`)
+   //     .then(response => response.json())
+   //     .then(jsonResp => this.setState({product_compare: jsonResp.data.stores}));
+   //
+   //  }
 
 
           // {this.state.product_compare.map((product_comp, index) => (

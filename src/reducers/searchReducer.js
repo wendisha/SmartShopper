@@ -1,7 +1,5 @@
-
-export default function SearchReducer(state = {searches: []}, action) {
+export default function searchReducer(state = {searches: []}, action) {
   switch (action.type) {
-
     case 'FETCH_SEARCHES':
       return {searches: action.payload}
     default:

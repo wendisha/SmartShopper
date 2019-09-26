@@ -7,8 +7,8 @@ export function fetchProductDetails(product_id) {
      fetch(BASE_URL.concat(product_id))
      .then(resp => resp.json())
      .then(product_detail_data => dispatch({
-        type: 'FETCH_PRODUCT_DETAILS',
-        payload: product_detail_data
+        type: 'FETCH_COMPARE_DETAILS',
+        payload: compare_detail_data
      }))
 
 

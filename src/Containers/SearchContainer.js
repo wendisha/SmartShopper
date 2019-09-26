@@ -6,41 +6,33 @@ import '../Item.css'
 import { connect } from 'react-redux'
 import {fetchSearches} from '../actions/fetchSearches.js'
 // import { MDBContainer, MDBCol, MDBRow, MDBCard, MDBCardUp, MDBCardBody, MDBAvatar, MDBRotatingCard, MDBIcon } from "mdbreact";
+    // <Item items={this.state.items}  />
 
-
- const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
+const priceYugeAPI_KEY = 'fCBxRI3EUVk2kSMxPLkGYTcXpvPRfx1XN4C';
 const BASE_URL = 'https://price-api.datayuge.com/api/v1/compare/search?' + `api_key=${priceYugeAPI_KEY}&product=`;
 
 // this.state.itemDetails.push(jsonResp.data.main_specs))));
 
 class SearchContainer extends React.Component {
-  state = {
-    searchTerm: '',
-    items: [],
-  };
-
-
     handleSearchInputChange = event => {
     this.setState({
       searchTerm: event.target.value,
     });
   }
 
-
-
   handleSubmit= event =>{
     event.preventDefault();
-    console.log('search term',this.state.searchTerm)
-  fetch(BASE_URL.concat(this.state.searchTerm))
-    .then(response => response.json())
-
-    .then(jsonResp => this.setState({items: jsonResp.data}));
+    this.props.fetchSearches(this.state.searchTerm);
+  // fetch(BASE_URL.concat(this.state.searchTerm))
+  //   .then(response => response.json())
+  //
+  //   .then(jsonResp => this.setState({items: jsonResp.data}));
     // console.log('URL',BASE_URL.concat(this.state.searchTerm))
     // console.log('After Handle Subimt/fetch',this.state.items)
     // console.log('Creating Item Detail')
 
 
-  };
+  }
 
  // generateItemDetail(){
  //
@@ -72,7 +64,7 @@ class SearchContainer extends React.Component {
              <Button type="submit" color="primary"  className="text-center" size="sm">Search</Button>
          </form>
           <div>
-            <Item items={this.state.items}  />
+            {console.log('searches', this.props.searches)}
           </div>
         </div>
 

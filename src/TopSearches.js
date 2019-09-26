@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 // import '../reducers/top_search.js'
 import {fetchTopSearches} from './actions/fetchTopSearches.js'
+import './App.css'
 
 
 
@@ -16,12 +17,13 @@ class TopSearches extends React.Component {
 
   render() {
          return(
-           <div>
+           <div className="topsearches">
+             <th> Search Term Count </th>
                    {console.log('topsearches', this.props.topSearches)}
                    {this.props.topSearches.map((top_search, index) => (
                         <tr>
                           <td>{Object.keys(top_search).map(function(key) {
-                            return <div>Search: {key}, Count: {top_search[key]}</div>;
+                            return <div> {key} {top_search[key]}  </div>;
                             })}
                           </td>
                             <p> &nbsp;</p>
